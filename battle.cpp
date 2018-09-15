@@ -24,7 +24,7 @@ puzzle** board_gen(int tam)
     
     for(int i=0; i < tam; i++)
     {
-        for(int j=0; i < tam; j++ )
+        for(int j=0; j < tam; j++ )
         {
             tab_aqua[i][j].avalability = true;
             tab_aqua[i][j].content = '-';
@@ -49,10 +49,10 @@ int main(int argc, char const *argv[])
 
     for(int i=0; i < tamanho_tabuleiro; i++)
     {
-        std::cout << "a /n" ;
-        for(int j=0; i < tamanho_tabuleiro; j++ )
+        std::cout <<""<<std::endl;
+        for(int j=0; j < tamanho_tabuleiro; j++ )
         {
-           std::cout << tabuleiro[i][j].content <<"/t";
+           std::cout << tabuleiro[i][j].content ;
         }
 
     }
@@ -62,6 +62,7 @@ int main(int argc, char const *argv[])
         delete [] tabuleiro[b];   
         }
         delete [] tabuleiro;
+        tabuleiro = 0;
         
 
     /*std::cout << tamanho_tabuleiro << "\n";
