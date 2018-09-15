@@ -12,9 +12,15 @@ struct puzzle
 
 };
 
-puzzle board_gen(int tam)
+puzzle** board_gen(int tam)
 {
-    puzzle tab_aqua[tam][tam];
+    puzzle** tab_aqua = 0;
+    tab_aqua = new puzzle *[tam];
+    
+    for(int h = 0; h < tam; h++)
+        {
+            tab_aqua[h] = new puzzle [tam];
+        }
     
     for(int i=0; i < tam; i++)
     {
@@ -37,18 +43,26 @@ int main(int argc, char const *argv[])
     tamanho_tabuleiro = strtol(argv[1], &p, 10);
     numero_tabuleiros = strtol(argv[2], &p, 10);
 
-    puzzle tabuleiro[tamanho_tabuleiro][tamanho_tabuleiro];
+    puzzle** tabuleiro;
     
     tabuleiro = board_gen(tamanho_tabuleiro);
 
     for(int i=0; i < tamanho_tabuleiro; i++)
     {
+        std::cout << "a /n" ;
         for(int j=0; i < tamanho_tabuleiro; j++ )
         {
-           std::cout << tabuleiro[i][j].content;
+           std::cout << tabuleiro[i][j].content <<"/t";
         }
 
     }
+
+    for ( int b = 0; b < tamanho_tabuleiro; b++ )
+        {
+        delete [] tabuleiro[b];   
+        }
+        delete [] tabuleiro;
+        
 
     /*std::cout << tamanho_tabuleiro << "\n";
     std::cout << numero_tabuleiros << "\n";
